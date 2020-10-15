@@ -1,6 +1,6 @@
 ---
 title: "project_temp_100"
-author: "Kwan Bo Shim"
+author: "JosephKBS"
 date: "10/14/2020"
 output: html_document
 ---
@@ -12,10 +12,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(ggplot2)
+library(ggthemes)
 co2emi <- read.csv("./data/annual-co2-emissions-per-country (1).csv")[22851:23019,3:4]
 temp_ano <-  read.csv("./data/temperature-anomaly.csv")[1:169,2:3]
-glotemp <-  read.csv("./data/globaltempfrom1880to2019.csv", header = TRUE)[2:141,1:14]
+# glotemp <-  read.csv("./data/globaltempfrom1880to2019.csv", header = TRUE)[2:141,1:14]
 ```
+
 
 ```{r}
 df <- data.frame( rbind(co2emi[,2], temp_ano[,2], temp_ano[,1] ))
@@ -29,6 +31,7 @@ head(df)
 ```{r}
 str(df)
 ```
+
 ```{r}
 df_norm <- scale(df[,1:2])
 df_norm <- data.frame(  cbind( df_norm, df$year) )
@@ -36,11 +39,10 @@ colnames(df_norm) <- c("co2" ,"temp_anomaly", "year")
 head(df_norm)
 ```
 
-
 ```{r}
 ggplot(df_norm, aes(year))+
   geom_line(aes(y=co2, col="co2 emission") ) + 
-  geom_line(aes(y=df_norm$temp_anomaly, col="temp")) +
+  geom_line(aes(y=df_norm$temp_anomaly, col="temp anomlay")) +
   theme_economist()  
 ```
 ```
