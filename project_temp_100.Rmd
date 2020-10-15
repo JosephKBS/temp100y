@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+1. Fetching datasets from the files
 ```{r}
 library(ggplot2)
 library(ggthemes)
@@ -18,27 +19,31 @@ temp_ano <-  read.csv("./data/temperature-anomaly.csv")[1:169,2:3]
 # glotemp <-  read.csv("./data/globaltempfrom1880to2019.csv", header = TRUE)[2:141,1:14]
 ```
 
-
+2. data cleaning 
 ```{r}
+# change to dataframe
 df <- data.frame( rbind(co2emi[,2], temp_ano[,2], temp_ano[,1] ))
+# transpose
 df <- as.data.frame(t(as.matrix(df)))
+# rowname 
 rownames(df)<-c()
 colnames(df) <- c("co2", "temp_anomaly", "year")
 head(df)
 ```
 
-
+3. checking the types of data
 ```{r}
 str(df)
 ```
 
+4. scaling the data (difference in unit of measurement)
 ```{r}
 df_norm <- scale(df[,1:2])
 df_norm <- data.frame(  cbind( df_norm, df$year) )
 colnames(df_norm) <- c("co2" ,"temp_anomaly", "year")
 head(df_norm)
 ```
-
+5. visualize the data
 ```{r}
 ggplot(df_norm, aes(year))+
   geom_line(aes(y=co2, col="co2 emission") ) + 
