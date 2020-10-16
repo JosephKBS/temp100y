@@ -48,7 +48,9 @@ head(df_norm)
 ggplot(df_norm, aes(year))+
   geom_line(aes(y=co2, col="co2 emission") ) + 
   geom_line(aes(y=df_norm$temp_anomaly, col="temp anomlay")) +
-  theme_economist()  
+  labs(title="Global temperature anomlay and co2 emission", 
+    caption="Source: U.S. EPICA, NOAA", x="Years", y="Scaled carbon dioxide emission")+
+    theme_economist() 
 ```
 ```
 
