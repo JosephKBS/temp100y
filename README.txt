@@ -1,7 +1,7 @@
 README
 
-![alt text](https://github.com/[JosephKBS]/[temp100y]/blob/[README]/image.jpg?raw=true)
-
+![alt text](https://github.com/[JosephKBS]/[temp100y]/blob/[plot]/000009.png?raw=true)
+plot/000009.png
 
 These are sources being used as dataset
 
