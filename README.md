@@ -1,7 +1,7 @@
 # README
 
-![Main Plot](/plot/000009.png)
-![Screenshot](000009.png)
+![Main Plot](plot/000009.png)
+
 
 These are sources being used as dataset
 
