@@ -1,6 +1,6 @@
 README
 
-![Screenshot](plot/000009.png)
+![alt text](https://github.com/[JosephKBS]/[temp100y]/blob/[README]/image.jpg?raw=true)
 
 
 These are sources being used as dataset
