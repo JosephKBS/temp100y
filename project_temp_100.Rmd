@@ -16,7 +16,7 @@ library(ggplot2)
 library(ggthemes)
 co2emi <- read.csv("./data/annual-co2-emissions-per-country (1).csv")[22851:23019,3:4]
 temp_ano <-  read.csv("./data/temperature-anomaly.csv")[1:169,2:3]
-# glotemp <-  read.csv("./data/globaltempfrom1880to2019.csv", header = TRUE)[2:141,1:14]
+ glotemp <-  read.csv("./data/globaltempfrom1880to2019.csv", header = TRUE)[2:141,1:14]
 ```
 
 2. data cleaning 
@@ -47,10 +47,37 @@ head(df_norm)
 ```{r}
 ggplot(df_norm, aes(year))+
   geom_line(aes(y=co2, col="co2 emission") ) + 
-  geom_line(aes(y=df_norm$temp_anomaly, col="temp anomlay")) +
-  labs(title="Global temperature anomlay and co2 emission", 
+  geom_line(aes(y=df_norm$temp_anomaly, col="temp anomaly")) +
+  labs(title="Global temperature anomaly and co2 emission", 
     caption="Source: U.S. EPICA, NOAA", x="Years", y="Scaled carbon dioxide emission")+
     theme_economist() 
 ```
+
+6. Looking at the new data 
+```{r}
+ggplot(df_norm, aes(x=year, y=temp_anomaly)) + 
+        geom_point( color="blue", alpha=0.3, size=2) +
+        geom_line(aes(y=co2, col="co2")) +
+  labs(title="Carbon Dioxide Emission and global temperature anomlay", 
+    subtitle="World wide data", 
+    caption="Source: U.S. EPICA",x="Years", y="Amount(scaled)")+
+    theme_classic() 
+```
+To check whether the type of the data.
+```{r}
+ df_g <- data.frame( glotemp )
+str(df_g)
 ```
 
+
+adjust the length of data
+```{r}
+i <- 1
+ridge_new<- numeric()
+glo<- as.numeric(df_g_y[,2])
+while( i < dust_n ){
+  dust_new[1] <- as.numeric( dust[1] )
+  dust_new[i] <- as.numeric(  dust[i*dust_di] ) 
+  i =i+1
+}
+```
