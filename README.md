@@ -1,9 +1,9 @@
 # Comparison of global temperature anomaly and carbon dioxide emission since 1880 to 2018
 
-![Main Plot](plot/1.png)
+![Main Plot](plot/1.png = 300 x300)
 
 
-![Main Plot](plot/000003.png)
+![Main Plot](plot/000003.png = 300x300)
 
 
 These are sources being used as dataset
