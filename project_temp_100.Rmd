@@ -69,15 +69,54 @@ To check whether the type of the data.
 str(df_g)
 ```
 
-
 adjust the length of data
 ```{r}
-i <- 1
-ridge_new<- numeric()
-glo<- as.numeric(df_g_y[,2])
-while( i < dust_n ){
-  dust_new[1] <- as.numeric( dust[1] )
-  dust_new[i] <- as.numeric(  dust[i*dust_di] ) 
-  i =i+1
+ df_g <- data.frame( glotemp )
+
+df_g_y<- as.numeric(df_g[,1])
+df_g_1<- as.numeric(df_g[,2])
+df_g_2<- as.numeric(df_g[,3])
+df_g_3<- as.numeric(df_g[,4])
+df_g_4<- as.numeric(df_g[,5])
+df_g_5<- as.numeric(df_g[,6])
+df_g_6<- as.numeric(df_g[,7])
+df_g_7<- as.numeric(df_g[,8])
+df_g_8<- as.numeric(df_g[,9])
+df_g_9<- as.numeric(df_g[,10])
+df_g_10<- as.numeric(df_g[,11])
+df_g_11<- as.numeric(df_g[,12])
+df_g_12<- as.numeric(df_g[,13])
+df_g_a<- as.numeric(df_g[,14])
+```
+
+
+```{r}
+df_g <- data.frame( rbind(df_g_y, df_g_1, df_g_2, df_g_3, df_g_4, df_g_5, df_g_6, df_g_7, df_g_8, df_g_9,df_g_10,df_g_11, df_g_12, df_g_a) )
+
+df_g <- as.data.frame(t(as.matrix(df_g)))
+rownames(df_g)<-c()
+colnames(df_g) <- c("year","jan","feb","mar","apr","may","june","july","aug","sep","oct","nov","dec","ave")
+df_g <- df_g[1:139,]
+head(df_g)
+str(df_g)
+```
+
+```{r}
+newdata <- data.frame(matrix(NA, nrow=12*138, ncol=3 ))
+
+new_data[,1] <- cat(df_g[,1], df_g[,1], df_g[,1], df_g[,1], df_g[,1], df_g[,1], df_g[,1], df_g[,1] ,df_g[,1], df_g[,1], df_g[,1], df_g[,1])
+new_data[,2] <- cat(df_g[,2], df_g[,3], df_g[,4], df_g[,5], df_g[,6], df_g[,7], df_g[,8], df_g[,9], df_g[,10], df_g[,11], df_g[,12]) 
+# new_data[,3] <- 
+
+new_data
+```
+
+```{r}
+x <-1
+repeat{
+  print("jan")
+  x=x+1
+  if(x==139){ break}
 }
 ```
+
