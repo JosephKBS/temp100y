@@ -113,18 +113,18 @@ for (i in 1:139){
   new_data[i+(139)*(j-1), 2] <- df_g[i,j+1]
   new_data[i+(139)*(11), 2] <- df_g[i, 12]
   
-  new_data[i+(139)*0,3] <- "jan"
-  new_data[i+(139)*1,3] <- "feb"
-  new_data[i+(139)*2,3] <- "mar"
-  new_data[i+(139)*3,3] <- "apr"
-  new_data[i+(139)*4,3] <- "may"
-  new_data[i+(139)*5,3] <- "jun"
-  new_data[i+(139)*6,3] <- "jul"
-  new_data[i+(139)*7,3] <- "aug"
-  new_data[i+(139)*8,3] <- "sep"
-  new_data[i+(139)*9,3] <- "oct"
-  new_data[i+(139)*10,3] <- "nov"
-  new_data[i+(139)*11,3] <- "dec"  
+  new_data[i+(139)*0,3] <- "Jan"
+  new_data[i+(139)*1,3] <- "Feb"
+  new_data[i+(139)*2,3] <- "Mar"
+  new_data[i+(139)*3,3] <- "Apr"
+  new_data[i+(139)*4,3] <- "May"
+  new_data[i+(139)*5,3] <- "Jun"
+  new_data[i+(139)*6,3] <- "Jul"
+  new_data[i+(139)*7,3] <- "Aug"
+  new_data[i+(139)*8,3] <- "Sep"
+  new_data[i+(139)*9,3] <- "Oct"
+  new_data[i+(139)*10,3] <- "Nov"
+  new_data[i+(139)*11,3] <- "Dec"  
   }
 }
 
@@ -203,18 +203,28 @@ head(ridge_data)
 
 ```
 
+# ordering month from Jan to Dec
+```{r}
+unq <- unique(ridge_data$Month)
+ridge_data$Month <- factor(unq, levels = month.abb)
+
+```
+
+
 # plotting monthly temperature anomaly compared to co2 emission.(scaled)
 ```{r}
 
 p <- ggplot(ridge_data, aes(x=Year, y=Scale, color=factor(Month))) + 
         geom_point() + 
         scale_colour_tableau(palette="Classic Purple-Gray 12") +
+       # scale_fill_discrete( labels = c("Month")) +
     labs(title="Increasing Carbon Dioxide emission and global temperature", 
     subtitle="Total amount of carbon dioxide emission and monthly temperature anomaly compared to 1950-1980.", 
-    x="Years", y="Temperature anomaly & co2 emission(Metric Ton, scaled)" ) + theme_classic()       
+    x="Years", 
+    y="Temperature anomaly & co2 emission(Metric Ton, scaled)" ) + theme_classic()       
 
 p2 <- p + geom_line(aes(y=co2_table$co2_scale, col="Co2_Emission"), 
-                    size=1.5, color="#990000", label="Co2") +  
+                    size=1.5, color="#990000", label="co2") +  
   annotate(
     geom = "curve", x = 1970, y = 2, 
     xend = 1976, yend = 0.7, 
@@ -223,9 +233,11 @@ p2 <- p + geom_line(aes(y=co2_table$co2_scale, col="Co2_Emission"),
     color="red", size=1.1
   ) +
   annotate(geom = "text", 
-           x = 1950, y = 2.3, 
+           x = 1950, 
+           y = 2.3, 
            label = "Total Co2 Emission", 
-           hjust = "left", color="red")
+           hjust = "left", 
+           color="red")
 p2
 ```
 
