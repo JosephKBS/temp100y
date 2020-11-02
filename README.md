@@ -1,8 +1,6 @@
 # Comparison of global temperature anomaly and carbon dioxide emission since 1880 to 2018
 
-![Main Plot](plot/00000b(2).png)
-
-
+![Main Plot](plot/1.png)
 ![Main Plot](plot/000003.png)
 
 
