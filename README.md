@@ -1,13 +1,14 @@
 # Comparison of global temperature anomaly and carbon dioxide emission since 1880 to 2018
 
+[2nd at Data visualization competition @ NYU PRIISM, 2020](https://steinhardt.nyu.edu/priism/world-temperature-increasing)
+
 ![Main Plot](plot/1.png)
 ![Main Plot](plot/000003.png)
 
 
-[Data visualization competition at NYU PRIISM](https://steinhardt.nyu.edu/priism/world-temperature-increasing)
 
-These are sources being used as dataset
 
+## These are sources being used as dataset
 ----------------------------------------------------------------------------------------------------------
 1. ANNUAL CO2 EMISSIONS DATA
 ----------------------------------------------------------------------------------------------------------
